@@ -1,21 +1,8 @@
-import org.gradle.nativeplatform.platform.internal.DefaultNativePlatform
-
 plugins {
-    id 'application'
+    id 'base'
     id 'com.palantir.docker' version '0.31.0'
     id 'com.palantir.docker-run' version '0.31.0'
     id 'pl.allegro.tech.build.axion-release' version '1.13.6'
-    id "org.jetbrains.kotlin.jvm" version "1.6.20"
-}
-
-apply plugin: "application"
-apply plugin: "kotlin"
-
-dependencies {
-    implementation "org.springframework.boot:spring-boot-starter-web:2.5.5"
-    implementation "com.fasterxml.jackson.module:jackson-module-kotlin:2.13.+"
-    implementation "org.jetbrains.kotlin:kotlin-reflect"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
 }
 
 project.version = scmVersion.version
@@ -25,12 +12,10 @@ docker {
     files "plugins.txt", "seedJob.xml"
 }
 
-String group = "999"
 dockerRun {
     name "${project.name}"
     image "${project.name}:${project.version}"
     ports '8080:8080'
     clean true
     daemonize false
-    arguments '-v', '/var/run/docker.sock:/var/run/docker.sock', '--group-add',group
 }
