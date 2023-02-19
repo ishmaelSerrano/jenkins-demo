@@ -7,14 +7,13 @@ pipelineJob('pipelineJob') {
     }
 }
 
-
 pipelineJob('theme-park-job') {
     definition {
         cpsScm {
             scm {
                 git {
                     remote {
-                        url 'https://github.com/ishmaelSerrano/SpringbootWebServices.git'
+                        url 'https://github.com/ishmaelSerrano/spring-boot-crud-operation.git'
                     }
                     branch 'master'
                 }
@@ -30,7 +29,7 @@ pipelineJob('theme-park-job-docker') {
             scm {
                 git {
                     remote {
-                        url 'https://github.com/ishmaelSerrano/SpringbootWebServices.git'
+                        url 'https://github.com/ishmaelSerrano/spring-boot-crud-operation.git'
                     }
                     branch 'master'
                     scriptPath 'Jenkinsfile-docker'
