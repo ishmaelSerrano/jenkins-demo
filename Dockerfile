@@ -11,6 +11,10 @@
 
 FROM jenkins/jenkins:lts
 USER root
+COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
+RUN apt-get jenkins-plugin-cli --plugin-file /usr/share/jenkins/ref/plugins.txt
+COPY seedJob.xml /usr/share/jenkins/ref/jobs/seed-job/config.xml
+
 RUN apt-get update -qq \
     && apt-get install -qqy apt-transport-https ca-certificates curl gnupg2 software-properties-common
 RUN curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -
