@@ -1,3 +1,5 @@
+import org.gradle.nativeplatform.platform.internal.DefaultNativePlatform
+
 plugins {
     id 'base'
     id 'com.palantir.docker' version '0.31.0'
@@ -12,10 +14,14 @@ docker {
     files "plugins.txt", "seedJob.xml"
 }
 
+String group = "999"
 dockerRun {
     name "${project.name}"
     image "${project.name}:${project.version}"
     ports '8080:8080'
     clean true
     daemonize false
+    daemonize false
+    arguments '-v', '/var/run/docker.sock:/var/run/docker.sock', '--group-add', group
+
 }

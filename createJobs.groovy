@@ -15,7 +15,7 @@ pipelineJob('theme-park-job') {
                     remote {
                         url 'https://github.com/ishmaelSerrano/spring-boot-crud-operation.git'
                     }
-                    branch 'master'
+                    branch 'main'
                 }
             }
         }
@@ -31,7 +31,7 @@ pipelineJob('theme-park-job-docker') {
                     remote {
                         url 'https://github.com/ishmaelSerrano/spring-boot-crud-operation.git'
                     }
-                    branch 'master'
+                    branch 'main'
                     scriptPath 'Jenkinsfile-docker'
                 }
             }
