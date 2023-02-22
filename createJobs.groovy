@@ -39,3 +39,19 @@ pipelineJob('theme-park-job-docker') {
     }
 
 }
+
+pipelineJob('theme-park-job-aws') {
+    definition {
+        cpsScm {
+            scm {
+                git {
+                    remote {
+                        url 'https://github.com/ishmaelSerrano/spring-boot-crud-operation.git'
+                    }
+                    branch 'main'
+                    scriptPath('Jenkinsfile-aws')
+                }
+            }
+        }
+    }
+}
