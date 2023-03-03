@@ -23,6 +23,22 @@ pipelineJob('theme-park-job') {
 
 }
 
+pipelineJob('theme-park-job-angular') {
+    definition {
+        cpsScm {
+            scm {
+                git {
+                    remote {
+                        url 'https://github.com/ishmaelSerrano/angular-frontend-books.git'
+                    }
+                    branch 'master'
+                }
+            }
+        }
+    }
+
+}
+
 pipelineJob('theme-park-job-docker') {
     definition {
         cpsScm {
